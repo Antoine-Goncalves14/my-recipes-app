@@ -1,16 +1,16 @@
 import axios from 'axios';
-import {URL_API, API_KEY} from '@env';
+import {REACT_APP_URL_API, REACT_APP_API_KEY} from '@env';
 
-// const { getAllRecipes } = useFetchRecipes()
-
-const MAX_RESULT = 30;
+const MAX_PER_PAGE = 30;
 
 export const useFetchRecipes = () => {
   const getAllRecipes = async () => {
     try {
-      const response = await axios.get(URL_API, {
-        apiKey: API_KEY,
-        number: MAX_RESULT,
+      const response = await axios.get(REACT_APP_URL_API, {
+        params: {
+          apiKey: REACT_APP_API_KEY,
+          number: MAX_PER_PAGE,
+        },
       });
       console.log('response', response.data.results);
     } catch (e) {
