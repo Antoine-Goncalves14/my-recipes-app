@@ -1,9 +1,8 @@
 import axios from 'axios';
+import {URL_API, API_KEY} from '@env';
 
 // const { getAllRecipes } = useFetchRecipes()
 
-const URL_API = 'https://api.spoonacular.com/recipes/complexSearch';
-const API_KEY = 'ff141441a4be4e218d72429ce5fd3df3';
 const MAX_RESULT = 30;
 
 export const useFetchRecipes = () => {
