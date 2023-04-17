@@ -8,6 +8,7 @@ export default function RecipesDetails({route, navigation}) {
   return (
     <>
       <Text>Ici les détails</Text>
+      <Text>{id}</Text>
       <TouchableOpacity
         onPress={() => {
           navigation.goBack();
