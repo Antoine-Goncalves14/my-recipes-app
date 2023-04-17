@@ -5,7 +5,9 @@ export default function RecipeTile({item, navigation}) {
   return (
     <TouchableOpacity
       onPress={() => {
-        navigation.navigate('RecipesDetails');
+        navigation.navigate('RecipesDetails', {
+          id: item.id,
+        });
       }}
       style={styles.container}>
       <Image source={{uri: item.image}} style={styles.image} />
