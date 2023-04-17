@@ -5,7 +5,7 @@ import {useSelector} from 'react-redux';
 import {getRecipesList} from '../../redux/selectors';
 import RecipeTile from '../RecipeTile';
 
-export default function RecipesList() {
+export default function RecipesList({navigation}) {
   const {getAllRecipes} = useFetchRecipes();
 
   const allRecipes = useSelector(getRecipesList);
@@ -13,9 +13,12 @@ export default function RecipesList() {
 
   useEffect(() => {
     getAllRecipes();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const renderItem = ({item}) => <RecipeTile item={item} />;
+  const renderItem = ({item}) => (
+    <RecipeTile navigation={navigation} item={item} />
+  );
 
   return (
     <FlatList
