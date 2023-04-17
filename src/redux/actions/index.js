@@ -1,5 +1,12 @@
-import {ADD_RECIPES, SELECTED_RECIPE} from './actionsType.js';
+import {
+  ADD_RECIPES,
+  ADD_TASK,
+  DELETE_TASK,
+  SELECTED_RECIPE,
+  TOOGLE_TASK,
+} from './actionsType.js';
 
+// Recipes
 export const addRecipes = data => ({
   type: ADD_RECIPES,
   payload: {
@@ -13,3 +20,34 @@ export const selectedRecipe = data => ({
     data,
   },
 });
+
+// Tasks
+// ADD_Task
+export function addTask(title) {
+  return {
+    type: ADD_TASK,
+    payload: {
+      title,
+    },
+  };
+}
+
+// TOOGLE_TASK
+export function toogleTask(id) {
+  return {
+    type: TOOGLE_TASK,
+    payload: {
+      id,
+    },
+  };
+}
+
+// DELETE_TASK
+export function deleteTask(id) {
+  return {
+    type: DELETE_TASK,
+    payload: {
+      id,
+    },
+  };
+}
