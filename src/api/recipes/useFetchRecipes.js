@@ -8,7 +8,7 @@ const MAX_PER_PAGE = 30;
 export const useFetchRecipes = () => {
   const dispatch = useDispatch();
 
-  const getAllRecipes = async () => {
+  const getAllRecipes = async (page = 0) => {
     try {
       const response = await axios.get(
         `${REACT_APP_BASE_URL_API}/complexSearch`,
@@ -16,6 +16,7 @@ export const useFetchRecipes = () => {
           params: {
             apiKey: REACT_APP_API_KEY,
             number: MAX_PER_PAGE,
+            offset: page * MAX_PER_PAGE,
           },
         },
       );
