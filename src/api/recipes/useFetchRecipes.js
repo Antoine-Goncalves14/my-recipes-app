@@ -16,7 +16,7 @@ export const useFetchRecipes = () => {
           number: MAX_PER_PAGE,
         },
       });
-      console.log('response', response.data.results);
+
       dispatch(addRecipes(response.data.results));
     } catch (e) {
       console.error('Error in getAllRecipes', e);
