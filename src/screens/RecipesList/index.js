@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {FlatList, Text} from 'react-native';
+import {FlatList} from 'react-native';
 import {useFetchRecipes} from '../../api/recipes/useFetchRecipes';
 import {useSelector} from 'react-redux';
 import {getRecipesList} from '../../redux/selectors';
@@ -18,13 +18,10 @@ export default function RecipesList() {
   const renderItem = ({item}) => <RecipeTile item={item} />;
 
   return (
-    <>
-      <Text>Recipes List</Text>
-      <FlatList
-        data={allRecipes}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={renderItem}
-      />
-    </>
+    <FlatList
+      data={allRecipes}
+      keyExtractor={(item, index) => index.toString()}
+      renderItem={renderItem}
+    />
   );
 }
