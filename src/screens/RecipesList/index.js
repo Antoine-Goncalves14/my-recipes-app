@@ -3,7 +3,7 @@ import {FlatList} from 'react-native';
 import {useFetchRecipes} from '../../api/recipes/useFetchRecipes';
 import {useSelector} from 'react-redux';
 import {getRecipesList} from '../../redux/selectors';
-import RecipeTile from '../RecipeTile/RecipeTile';
+import RecipeTile from '../RecipeTile';
 
 export default function RecipesList() {
   const {getAllRecipes} = useFetchRecipes();
