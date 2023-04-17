@@ -1,8 +1,8 @@
-const {ADD_RECIPES} = require('../actions/actionsType');
+const {ADD_RECIPES, SELECTED_RECIPE} = require('../actions/actionsType');
 
 const initialState = {
   list: [],
-  //selectedRecipe: {},
+  selectedRecipe: {},
 };
 
 export const recipes = (state = initialState, action) => {
@@ -10,6 +10,12 @@ export const recipes = (state = initialState, action) => {
     case ADD_RECIPES:
       return {
         list: [...state.list, ...action.payload.data],
+        selectedRecipe: state.selectedRecipe,
+      };
+    case SELECTED_RECIPE:
+      return {
+        list: state.list,
+        selectedRecipe: action.payload.data,
       };
     default:
       return state;

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {REACT_APP_API_KEY, REACT_APP_BASE_URL_API} from '@env';
 import {useDispatch} from 'react-redux';
-import {addRecipes} from '../../redux/actions';
+import {addRecipes, selectedRecipe} from '../../redux/actions';
 
 const MAX_PER_PAGE = 30;
 
@@ -36,7 +36,8 @@ export const useFetchRecipes = () => {
           },
         },
       );
-      console.log('response =>', response);
+      console.log('response =>', response.data);
+      dispatch(selectedRecipe(response.data));
     } catch (e) {
       console.error('Error in getRecipeById', e);
     }
