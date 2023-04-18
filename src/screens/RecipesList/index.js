@@ -10,7 +10,6 @@ export default function RecipesList({navigation}) {
   const {getAllRecipes} = useFetchRecipes();
 
   const allRecipes = useSelector(getRecipesList);
-  console.log('ALL RECIPES =>', allRecipes);
 
   useEffect(() => {
     getAllRecipes(page);

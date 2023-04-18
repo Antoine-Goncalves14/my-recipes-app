@@ -1,18 +1,21 @@
 import React, {useEffect} from 'react';
 import {Text, Image, StyleSheet, View, ScrollView} from 'react-native';
 import {useSelector} from 'react-redux';
-import {getSelectedRecipe} from '../../redux/selectors';
+import {getSelectedRecipe, getStepsRecipe} from '../../redux/selectors';
 import {useFetchRecipes} from '../../api/recipes/useFetchRecipes';
 
 export default function RecipesDetails({route, navigation}) {
   const {id} = route.params;
-  console.log(id);
-  const {getRecipeById} = useFetchRecipes();
+
+  const {getRecipeById, getRecipeBySteps} = useFetchRecipes();
 
   const recipe = useSelector(getSelectedRecipe);
+  const stepsRecipe = useSelector(getStepsRecipe);
+  console.log('recipe =>', stepsRecipe);
 
   useEffect(() => {
     getRecipeById(id);
+    getRecipeBySteps(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -30,15 +33,15 @@ export default function RecipesDetails({route, navigation}) {
       <Text style={styles.caption}>{recipe.summary}</Text>
       <View style={styles.containerIng}>
         <Text style={styles.titleIng}>Ingrédients :</Text>
-        {recipe.extentedIngretiens?.map(ing => (
+        {recipe.extendedIngredients?.map(ing => (
           <Text>{ing.name}</Text>
         ))}
       </View>
 
       <View style={styles.containerIng}>
         <Text style={styles.titleIng}>Steps :</Text>
-        {recipe.extentedIngretiens?.map(ing => (
-          <Text>{ing.name}</Text>
+        {stepsRecipe.steps?.map(recipe => (
+          <Text>{recipe.step}</Text>
         ))}
       </View>
     </ScrollView>

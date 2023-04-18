@@ -3,6 +3,7 @@ import {
   ADD_TASK,
   DELETE_TASK,
   SELECTED_RECIPE,
+  STEPS_RECIPE,
   TOOGLE_TASK,
 } from './actionsType.js';
 
@@ -16,6 +17,13 @@ export const addRecipes = data => ({
 
 export const selectedRecipe = data => ({
   type: SELECTED_RECIPE,
+  payload: {
+    data,
+  },
+});
+
+export const stepsRecipe = data => ({
+  type: STEPS_RECIPE,
   payload: {
     data,
   },
