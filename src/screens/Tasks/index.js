@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {FlatList, StyleSheet, View} from 'react-native';
+import {FlatList, SafeAreaView, StyleSheet, View} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import Counter from '../../components/Counter';
 import FloatingBtn from '../../components/FloattingBtn';
@@ -47,7 +47,7 @@ export default function TasksScreen() {
   // Ajouter un bouton flottant => style absolute
   // callback => rendu conditionnel. TaskForm
   return (
-    <>
+    <SafeAreaView style={{flex: 1}}>
       <FlatList
         ListHeaderComponent={
           <>
@@ -68,7 +68,7 @@ export default function TasksScreen() {
         renderItem={renderItem}
       />
       <FloatingBtn toogle={_toogleForm} isOpen={isFormVisible} />
-    </>
+    </SafeAreaView>
   );
 }
 
