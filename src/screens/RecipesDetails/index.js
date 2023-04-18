@@ -3,6 +3,7 @@ import {Text, Image, StyleSheet, View, ScrollView} from 'react-native';
 import {useSelector} from 'react-redux';
 import {getSelectedRecipe, getStepsRecipe} from '../../redux/selectors';
 import {useFetchRecipes} from '../../api/recipes/useFetchRecipes';
+import Ingredient from '../Ingredient';
 
 export default function RecipesDetails({route, navigation}) {
   const {id} = route.params;
@@ -34,7 +35,7 @@ export default function RecipesDetails({route, navigation}) {
       <View style={styles.containerIng}>
         <Text style={styles.titleIng}>Ingrédients :</Text>
         {recipe.extendedIngredients?.map(ing => (
-          <Text>{ing.name}</Text>
+          <Ingredient ing={ing} />
         ))}
       </View>
 
